@@ -13,9 +13,12 @@ services:
       - "8080"
       - "8082"
       - "8888"
+     environment:
+      - MONGO_CONNECTION_STRING=mongo://mongodb:27017/users
+      - GOOGLE_AUTH_KEY=${GOOGLE_AUTH_KEY}
      links:
       - go-ethereum
-      - mongo
+      - mongodb
       - redis  
     redis:
      image: library/redis
