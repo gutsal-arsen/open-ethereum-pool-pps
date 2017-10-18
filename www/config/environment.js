@@ -61,5 +61,14 @@ module.exports = function(environment) {
 
   }
 
+  ENV.torii = {
+    providers: {
+      'google-oauth2-bearer': {
+        apiKey: process.env.GOOGLE_API_KEY,
+        redirectUri: "http://localhost:4200/oauth2callback"
+      }
+    }
+  };	
+
   return ENV;
 };

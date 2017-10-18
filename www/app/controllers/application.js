@@ -2,6 +2,17 @@ import Ember from 'ember';
 import config from '../config/environment';
 
 export default Ember.Controller.extend({
+  session: Ember.inject.service('session'),
+
+  actions: {
+    login() {
+      this.get('session').authenticate('authenticator:torii', 'google-oauth2-bearer');
+    },
+    logout() {
+      this.get('session').invalidate();
+    }
+  },
+	
   get config() {
     return config.APP;
   },
